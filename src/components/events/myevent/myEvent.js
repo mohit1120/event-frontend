@@ -41,7 +41,7 @@ class MyEvent extends React.Component{
       fetchEvents() {
         const cookies = new Cookies();
         const data = cookies.get('email');
-        fetch('https://ab1232.herokuapp.com/event?email='+data,{ method:"GET",headers:{'Content-type': 'application/json',"Accept":"application/json"}})
+        fetch('https://peaceful-spire-23915.herokuapp.com/event?email='+data,{ method:"GET",headers:{'Content-type': 'application/json',"Accept":"application/json"}})
         .then(response => response.json())
         .then(json => {
 

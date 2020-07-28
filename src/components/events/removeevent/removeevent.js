@@ -11,8 +11,6 @@ class Addevent extends React.Component {
         super();
         this.state = {
           id: '',
-          name: '',
-          description: '',
           email: '',
           success:false,
           error:'',
@@ -31,7 +29,7 @@ if(this.state.submitclicked)
     return;
 }
     e.preventDefault();
-    const { id, name, description} = this.state;
+    const { id } = this.state;
     const cookies = new Cookies();
     const email=cookies.get('email');
     const token=cookies.get('token');
@@ -42,8 +40,9 @@ if(this.state.submitclicked)
         window.location.href ='/login';
     }
     
-    const data=JSON.stringify({ id: id,name: name,description:description,email:email });
-    fetch('https://peaceful-spire-23915.herokuapp.com/addevent',{ method:"POST",headers:{'Content-type': 'application/json',"Accept":"application/json"},body:data})
+    const data=JSON.stringify({ id:id, email:email });
+    console.log(id,email);
+    fetch('https://peaceful-spire-23915.herokuapp.com/removeevent',{ method:"POST",headers:{'Content-type': 'application/json',"Accept":"application/json"},body:data})
     .then(response => response.json())
     .then(json => {const {success,message}=json;
     this.setState({ success: success,message:message});
@@ -54,7 +53,7 @@ if(this.state.submitclicked)
     }) 
 }
     render() {
-        const {id, name, description } = this.state;
+        const {id} = this.state;
         return (
             <div>
                 <Header/>
@@ -69,27 +68,13 @@ if(this.state.submitclicked)
                 }
 
               {!this.state.submitclicked  &&  <form  onSubmit={this.onSubmit} className="login-form">
-                <h1>Add Event</h1>
+                <h1>Remove Event</h1>
                 <div className="txtb">
                     <input
                     type="text" name="id"
                     value={id} required
                     onChange={this.onChange}
                     placeholder="Passcode" />
-                </div>
-
-                <div className="txtb">
-                    <input type="text" name="name"
-                    value={name} required
-                    onChange={this.onChange}
-                    placeholder="Event name" />
-                </div>
-
-                <div className="txtb">
-                    <input type="text" name="description"
-                    value={description} required
-                    onChange={this.onChange}
-                    placeholder="Details of event" />
                 </div>
                 <button type="submit" className="loginbtn">Submit</button>
                 </form>

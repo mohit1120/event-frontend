@@ -1,7 +1,6 @@
 import './App.css';
 import {Logout} from './shared/utility';
 import React from 'react';
-
 const Header=()=>{
 
 return ( 
@@ -16,6 +15,7 @@ return (
     <a href="/">Home</a>
     <a href="/addevent">Add Event</a>
     <a href="/myevent">My Event</a>
+    <a href="/removeevent">Remove Event</a>
     <a href="/login" onClick={Logout}>Logout</a>
   </nav>
 

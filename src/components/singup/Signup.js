@@ -23,7 +23,7 @@ class Login extends React.Component {
     e.preventDefault();
     const { name, email, password } = this.state;
     const data=JSON.stringify({ name: name, email: email,password: password });
-    fetch('https://ab1232.herokuapp.com/signup',{ method:"POST",headers:{'Content-type': 'application/json',"Accept":"application/json"},body:data})
+    fetch('https://peaceful-spire-23915.herokuapp.com/signup',{ method:"POST",headers:{'Content-type': 'application/json',"Accept":"application/json"},body:data})
     .then(response => response.json())
     .then(json => {const {success,message}=json;
     this.setState({ success: success, message:message});

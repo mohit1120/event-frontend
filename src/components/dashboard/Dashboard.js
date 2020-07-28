@@ -42,7 +42,7 @@ class Events extends React.Component{
         // The API where we're fetching data from
         
        
-        fetch('https://ab1232.herokuapp.com/eventlist',{ method:"GET",headers:{'Content-type': 'application/json',"Accept":"application/json"}})
+        fetch('https://peaceful-spire-23915.herokuapp.com/eventlist',{ method:"GET",headers:{'Content-type': 'application/json',"Accept":"application/json"}})
         .then(response => response.json())
         .then(json => {
 

@@ -7,7 +7,7 @@ import './App.css';
 import Cookies from 'universal-cookie';
 import Myevent from './components/events/myevent/myEvent'
 import Addevent from './components/events/addevent/AddEvent';
-
+import Removeevent from './components/events/removeevent/removeevent';
 
 
 function App() {
@@ -26,6 +26,8 @@ console.log(cookies,cookies.get('token'),login,cookies.get('loggedIn'));
 <Route exact path ="/"   component = {login?Dashboard:Login} />}
 <Route exact path ="/myevent"   component = {login?Myevent:Login} />}
 <Route exact path ="/addevent"   component = {login?Addevent:Login} />}
+<Route exact path ="/removeevent"   component = {login?Removeevent:Login} />}
+
 
 
 </Switch>
